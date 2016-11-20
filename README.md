@@ -1,5 +1,11 @@
 # Installation
 
+## External Dependencies
+* imagemagick
+* tesseract
+* rabbitmq
+* mysql
+
 ## Install Tesseract Core
 ```
 brew install imagemagick
@@ -16,5 +22,5 @@ $ pip install -r requirements.txt
 # Run Application
 
 ```
-$ python main.py
+$ python app.py
 ```
