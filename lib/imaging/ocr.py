@@ -3,7 +3,7 @@ import io
 import pytesseract
 from wand.display import display
 
-class Tesseract:
+class Ocr:
 
     PARSER_NORMAL = 1
     PARSER_SINGLE_LINE = 7

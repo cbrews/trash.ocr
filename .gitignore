@@ -1,4 +1,5 @@
 venv
-20161104011446_1.jpg
 *.pyc
 .DS_Store
+config.py
+uploads

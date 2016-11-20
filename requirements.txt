@@ -2,3 +2,7 @@ Image
 wand
 pytesseract
 pyenchant
+flask
+itsdangerous
+Flask-SQLAlchemy
+mysql

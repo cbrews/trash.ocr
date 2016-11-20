@@ -1,5 +1,5 @@
-from lib.imaging.ocr import reader_class
-from lib.parser.spellcheck import Spellcheck
+from lib.text.spellcheck import Spellcheck
+from lib.imaging.ocr import Ocr
 
 class BaseType:
 
@@ -21,7 +21,7 @@ class BaseType:
 
             self.beforeRead()
 
-            ocr = reader_class(self.image, { "data_type": self.data_type})
+            ocr = Ocr(self.image, { "data_type": self.data_type})
             self.val = ocr.execute()
 
             self.afterRead()

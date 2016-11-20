@@ -6,18 +6,28 @@ from lib.imaging.processing.normalize import Normalize
 from lib.imaging.slicing.even import Even as EvenSlice
 from lib.imaging.slicing.half import Half as HalfSlice
 
-from lib.data import *
+from reader import *
 
-class App:
+class Image:
     def __init__(self, filename):
         self.image = Image(filename=filename)
 
-    def preprocess(self):
+    def read(self):
+        rows = []
+        for row in self.imagesForRead():
+            rows.append({
+                "player": Name(row[0]).value(),
+                "score": Score(row[1]).value(),
+                "goals": Goals(row[2]).value(),
+                "assists": Assists(row[3]).value(),
+                "saves": Saves(row[4]).value(),
+                "shots": Shots(row[5]).value()
+            })
+        return rows
+
+    def imagesForRead(self):
         self.image = Normalize(self.image).setLevels(.55, .65, .6).run()
         self.image = Crop(self.image).setRange((.29, .30),(.94, .66)).run()
-
-    def getImages(self):
-        self.preprocess()
 
         rows = EvenSlice(self.image).setMode(EvenSlice.MODE_ROWS).setNumSlices(6)
         image_rows = []
@@ -42,16 +52,3 @@ class App:
                 image_rows.append(images)
 
         return image_rows
-
-    def getData(self):
-        rows = []
-        for row in self.getImages():
-            rows.append({
-                "player": Name(row[0]).value(),
-                "score": Score(row[1]).value(),
-                "goals": Goals(row[2]).value(),
-                "assists": Assists(row[3]).value(),
-                "saves": Saves(row[4]).value(),
-                "shots": Shots(row[5]).value()
-            })
-        return rows

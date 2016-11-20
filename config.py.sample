@@ -1,0 +1,11 @@
+# Gloabl Config
+DEBUG = False
+PORT = 80
+
+# SQLALCHEMY Configs
+SQLALCHEMY_DATABASE_URI = "mysql://username:password@host/database"
+SQLALCHEMY_TRACK_MODIFICATIONS = False
+SQLALCHEMY_ECHO = False
+
+# Cryptography
+SECRET_KEY = ""

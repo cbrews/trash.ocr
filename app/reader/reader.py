@@ -1,5 +1,5 @@
-from lib.parser.base import BaseType
-import lib.usernames as Usernames
+from abstractreader import BaseType
+import app.players.model as Usernames
 
 class Name(BaseType):
     data_type="paragraph"
